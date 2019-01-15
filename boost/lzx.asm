@@ -76,20 +76,23 @@ CodeStart:
 	RTL
 	
 .RAM_DMA
-	LDX #$8000
-	STX $4310
 	LDX $00
 	STX $2181
 	LDA $02
 	STA $2183
+	LDX #$8000
+	STX $4360
 	LDX #$0000
-	STX $4312
+	STX $4362
 	LDA #$41
-	STA $4314
+	STA $4364
 	LDX $8D
-	STX $4315
-	LDA #$02
-	STA $420B
+	STX $4365
+	LDA #$40
+-	STA $420B
+	
+	LDX $4365			; \ DMA not terminated? (either interrupted by IRQ/NMI/HDMA)
+	BNE -				; / run again. (WARNING: NMI can't run DMA on same channel)
 	
 	PLB
 	SEP #$30
