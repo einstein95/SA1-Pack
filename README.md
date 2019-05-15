@@ -225,7 +225,7 @@ F.A.Q
 <dt>
  Q: How I can make something compatible with SA-1?
 </dt><dd>
- A: Check out the [Programming](docs/programming.md) section for more
+   A: Check out the <a href="docs/programming.md">Programming</a> section for more
  information. You will need some ASM knowledge to edit .asm files beforehand.
 </dd>
 <dt>
